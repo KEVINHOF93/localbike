@@ -1,0 +1,23 @@
+version: 2
+
+models:
+
+  - name: kpi_revenue_per_staff
+    description: |
+      This model aggregates `stg_orders`and `stg_order_items`.
+      
+      It provides key metrics about revenue generate by person.
+    columns:
+
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+
+      - name: order_revenue 
+        tests:
+          - not_null
+              
+      - name: avg_basket_value 
+        tests:
+          - not_null

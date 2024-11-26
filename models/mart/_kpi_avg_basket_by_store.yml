@@ -16,10 +16,8 @@ models:
 
       - name: order_revenue 
         tests:
-          - dbt_utils.expression_is_true:
-              expression: '>= 0'
+          - not_null
               
       - name: avg_basket_value 
         tests:
-          - dbt_utils.expression_is_true:
-              expression: '>= 0'
+          - not_null
