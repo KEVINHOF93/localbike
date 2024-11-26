@@ -17,5 +17,4 @@ models:
               
       - name: on_time_delivery_rate
         tests:
-          - dbt_utils.expression_is_true:
-              expression: '>= 0'
+          - not_null
