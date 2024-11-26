@@ -3,10 +3,10 @@ with stock_and_sales as (
         s.store_id,
         s.product_id,
         s.current_stock,
-        coalesce(sum(o.total_sold), 0) as total_sold
+        coalesce(sum(oi.quantity * (oi.list_price - oi.discount)), 0) as total_sold
     from {{ ref('stg_stocks') }} s
-    left join {{ ref('stg_order_items') }} o
-    on s.product_id = o.product_id
+    left join {{ ref('stg_order_items') }} oi
+        on s.product_id = oi.product_id
     group by s.store_id, s.product_id, s.current_stock
 )
 select 
