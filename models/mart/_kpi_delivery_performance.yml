@@ -1,0 +1,21 @@
+version: 2
+
+models:
+
+  - name: kpi_delivery_performance
+    description: |
+      This model aggregates customer order data from the `int_delivery_performance` table.
+      
+      It provides key metrics for each customer, including the number of orders, total and average 
+      order amounts, and customer lifespan based on their order history.
+    columns:
+
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+              
+      - name: on_time_delivery_rate
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: '>= 0'
