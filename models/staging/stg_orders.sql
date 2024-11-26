@@ -8,7 +8,7 @@ with raw_orders as (
         shipped_date,
         store_id,
         staff_id
-    from {{ source('localbike', 'orders') }}
+    from {{ source('local_bike', 'orders') }}
 )
 select 
     *,

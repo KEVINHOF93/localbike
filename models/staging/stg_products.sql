@@ -5,7 +5,7 @@ with raw_products as (
         category_id,
         model_year,
         list_price
-    from {{ source('localbike', 'products') }}
+    from {{ source('local_bike', 'products') }}
 )
 select 
     product_id,

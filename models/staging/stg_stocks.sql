@@ -3,6 +3,7 @@ with raw_stocks as (
         store_id,
         product_id,
         quantity as current_stock
-    from {{ source('localbike', 'stocks') }}
+    from {{ source('local_bike', 'stocks') }}
 )
-select * from raw_stocks
+select * 
+FROM raw_stocks

@@ -6,7 +6,7 @@ with raw_order_items as (
         quantity,
         list_price,
         discount
-    from {{ source('localbike', 'order_items') }}
+    from {{ source('local_bike', 'order_items') }}
 )
 select 
     order_id,

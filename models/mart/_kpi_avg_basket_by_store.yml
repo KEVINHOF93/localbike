@@ -1,0 +1,26 @@
+version: 2
+
+models:
+
+  - name: kpi_avg_basket_by_store
+    description: |
+      This model aggregates customer order data from the `stg_orders` and `stg_orders_item` table.
+      
+      It provides key metrics for each customer, including the number of orders, total and average 
+      order amounts, and customer lifespan based on their order history.
+    columns:
+
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+
+      - name: order_revenue 
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: '>= 0'
+              
+      - name: avg_basket_value 
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: '>= 0'
