@@ -4,8 +4,8 @@ with raw_orders as (
         customer_id,
         order_status,
         order_date,
-        required_date,
-        shipped_date,
+        cast(required_date as date) as required_date,
+        cast(shipped_date as date) as shipped_date,
         store_id,
         staff_id
     from {{ source('local_bike', 'orders') }}
