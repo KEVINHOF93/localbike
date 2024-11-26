@@ -3,7 +3,7 @@ with raw_customers as (
         customer_id,
         city,
         state
-    from {{ source('localbike', 'customers') }}
+    from {{ source('local_bike', 'customers') }}
 )
 select 
     customer_id,

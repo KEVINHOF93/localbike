@@ -4,7 +4,7 @@ with raw_staffs as (
         active,
         store_id,
         manager_id
-    from {{ source('localbike', 'staffs') }}
+    from {{ source('local_bike', 'staffs') }}
 )
 select 
     staff_id,

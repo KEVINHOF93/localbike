@@ -3,7 +3,7 @@ with raw_stores as (
         store_id,
         city,
         state
-    from {{ source('localbike', 'stores') }}
+    from {{ source('local_bike', 'stores') }}
 )
 select 
     store_id,
