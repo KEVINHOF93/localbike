@@ -8,7 +8,7 @@ with raw_staffs as (
 )
 select 
     staff_id,
-    active::boolean as is_active, -- Conversion pour faciliter les analyses
+    cast(active as boolean) as is_active,
     store_id,
     manager_id
 from raw_staffs
