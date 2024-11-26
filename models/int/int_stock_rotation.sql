@@ -1,4 +1,4 @@
-with stock_and_sales as (
+with stock_and_revenue as (
     select 
         s.store_id,
         s.product_id,
@@ -13,4 +13,4 @@ select
     store_id,
     product_id,
     total_sold / nullif(current_stock, 0) as stock_rotation
-from stock_and_sales
+from stock_and_revenue
